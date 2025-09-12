@@ -3,7 +3,7 @@ from typing import Tuple
 from skyfield.api import load
 from skyfield.timelib import Timescale
 from skyfield.vectorlib import VectorSum
-import Nexus_Lite
+import Nexus_Lite_2
 
 # ver 2
 class Coordinates:
@@ -16,7 +16,7 @@ class Coordinates:
         #self.moon = self.planets["moon"]
         self.ts = load.timescale()
 
-    def conv_altaz(self, nexus: Nexus_Lite, ra: float, dec: float) -> Tuple[float, float]:
+    def conv_altaz(self, nexus: Nexus_Lite_2, ra: float, dec: float) -> Tuple[float, float]:
         """Convert the ra and dec to altitude and azimuth
 
         Parameters:
