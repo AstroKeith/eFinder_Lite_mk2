@@ -140,7 +140,6 @@ echo "**************************************************************************
 sudo tee -a /boot/firmware/config.txt > /dev/null <<EOT
 dtoverlay=dwc2,dr_mode=peripheral
 enable_uart=1
-dtoverlay=pwm-2chan
 EOT
 sudo python /home/efinder/Solver/cmdlineUpdater.py
 
