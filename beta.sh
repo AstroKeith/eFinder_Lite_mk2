@@ -73,9 +73,9 @@ mkdir /home/efinder/Solver/images
 mkdir /home/efinder/Solver/data
 
 
-cp /home/efinder/eFinder_Lite/Solver/*.* /home/efinder/Solver
-cp /home/efinder/eFinder_Lite/Solver/de421.bsp /home/efinder
-cp /home/efinder/eFinder_Lite/Solver/starnames.csv /home/efinder/Solver/data
+cp /home/efinder/eFinder_Lite_mk2/Solver/*.* /home/efinder/Solver
+cp /home/efinder/eFinder_Lite_mk2/Solver/de421.bsp /home/efinder
+cp /home/efinder/eFinder_Lite_mk2/Solver/starnames.csv /home/efinder/Solver/data
 
 echo " "
 echo "*****************************************************************************"
@@ -114,9 +114,9 @@ echo " "
 echo "*****************************************************************************"
 echo "installing Tetra databases"
 echo "*****************************************************************************"
-sudo cp -r /home/efinder/eFinder_Lite/tetra3 venv-efinder/lib/python3.11/site-packages
+sudo cp -r /home/efinder/eFinder_Lite_mk2/tetra3 venv-efinder/lib/python3.11/site-packages
 sudo venv-efinder/bin/gdown  --output /home/efinder/venv-efinder/lib/python3.11/site-packages/tetra3/data --folder https://drive.google.com/drive/folders/1uxbdttpg0Dpp8OuYUDY9arYoeglfZzcX
-#sudo cp /home/efinder/eFinder_Lite/Solver/cedar-detect-server /home/efinder/venv-efinder/lib/python3.11/site-packages/tetra3/bin
+#sudo cp /home/efinder/eFinder_Lite_mk2/Solver/cedar-detect-server /home/efinder/venv-efinder/lib/python3.11/site-packages/tetra3/bin
 sudo chmod a+rwx -R /home/efinder/venv-efinder/lib/python3.11/site-packages/tetra3
 
 echo " "
@@ -128,7 +128,7 @@ sudo apt-get install -y php8.2
 sudo chmod a+rwx /home/efinder
 sudo chmod a+rwx /home/efinder/Solver
 sudo chmod a+rwx /home/efinder/Solver/eFinder.config
-sudo cp eFinder_Lite/Solver/www/*.* /var/www/html
+sudo cp eFinder_Lite_mk2/Solver/www/*.* /var/www/html
 sudo mv /var/www/html/index.html /var/www/html/apacheindex.html
 sudo chmod -R 755 /var/www/html
 
@@ -143,8 +143,8 @@ enable_uart=1
 EOT
 sudo python /home/efinder/Solver/cmdlineUpdater.py
 
-sudo chmod a+rwx eFinder_Lite/Solver/my_cron
-sudo cp /home/efinder/eFinder_Lite/Solver/my_cron /etc/cron.d
+sudo chmod a+rwx eFinder_Lite_mk2/Solver/my_cron
+sudo cp /home/efinder/eFinder_Lite_mk2/Solver/my_cron /etc/cron.d
 
 sudo raspi-config nonint do_boot_behaviour B2
 #sudo raspi-config nonint do_hostname efinder
