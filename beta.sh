@@ -48,7 +48,7 @@ echo " "
 echo "*****************************************************************************"
 echo "Downloading eFinder_Lite from AstroKeith GitHub"
 echo "*****************************************************************************"
-sudo -u efinder git clone https://github.com/AstroKeith/eFinder_Lite.git
+sudo -u efinder git clone https://github.com/AstroKeith/eFinder_Lite_mk2.git
 echo " "
 echo "*****************************************************************************"
 echo "Installing ASI camera support"
