@@ -1,4 +1,4 @@
-# eFinder Lite
+# eFinder Lite mk2
 
 
 ![IMG_6329](https://github.com/user-attachments/assets/0eabcc3c-f5e7-4bad-b855-3142e98c168f)
@@ -11,7 +11,6 @@ Requires:
 
 - microSd card loaded with Raspberry Pi 64bit Bookworm OS Lite (No desktop)
 - Raspberry Pi Zero 2W.
-- Waveshare 4 port USB and UART HAT for the Pi Zero.  
 - A custom box (Raspberry Pi Zero, HAT, OLED display and switches)
 - A Nexus DSC with optical encoders. USB cable from Nexus port to the UART port on the UART HAT.
 - A Camera, either the RP HQ Camera module (recommended) of an ASI Camera (Suggest ASI120MM-mini)
@@ -22,8 +21,13 @@ Full details at [
 
 ## Compatibility
 
-The eFinder Lite is designed to operate alongside a Nexus DSC (original & Pro). It uses the standard LX200 protcol to communicate with the Nexus DSC via its usb port.
+The eFinder Lite mk2 is designed to operate alongside a Nexus DSC (original & Pro). It uses the standard LX200 protcol to communicate with the Nexus DSC via its usb port.
 
+It differs from the mk1 in ...
+- the USB/UART HAT is not required, but also the Nexus
+- Will only work with a Nexus DSC Pro
+- Requires Nexus DSc Pro firmware later than 1.4.12
+- 
 If the Nexus DSC is connected to a drive, GoTo++ can be enabled. Directly compatible drives are ScopeDog, SiTech & SkyTracker. ServoCat drives can be used but since the Nexus DSC usb port is used to connect to the ServoCat drive, the eFinder must be configured to connect to the Nexus DSC via wifi.
 
 A Raspberry Pi HQ camera module is strongly recommended. The Arduino clone will also work, but the config.txt file needs amending. change to camera_auto_detect=0 and add dtoverlay=IMX477
