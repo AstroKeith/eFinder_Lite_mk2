@@ -11,11 +11,11 @@ Requires:
 
 - microSd card loaded with Raspberry Pi 64bit Bookworm OS Lite (No desktop)
 - Raspberry Pi Zero 2W.
-- A custom box (Raspberry Pi Zero, HAT, OLED display and switches)
+- A custom box (Raspberry Pi Zero, OLED display and switches)
 - A Nexus DSC Pro with optical encoders. (Note: requires Pro version)
 - USB cable from Nexus DSC Pro USB port to the Pi Zero USB OTG port.
 - A Camera, either the RP HQ Camera module (recommended) of an ASI Camera (Suggest ASI120MM-mini)
-- Camera lens, either 25 or 50mm. f1.8 or faster cctv lens
+- Camera lens, either 25 or 50mm. f1.8 or faster cctv lens. (Recommend Arducam 25mm f1.2)
 
 Full details at [
 ](https://astrokeith.com/equipment/efinder/efinder-lite)https://astrokeith.com/equipment/efinder/efinder-lite
