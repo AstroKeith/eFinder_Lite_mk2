@@ -21,14 +21,14 @@ Full details at [
 
 ## Compatibility
 
-The eFinder Lite mk2 is designed to operate alongside a Nexus DSC (original & Pro). It uses the standard LX200 protcol to communicate with the Nexus DSC via its usb port.
+The eFinder Lite mk2 is designed to operate alongside a Nexus DSC Pro. It uses the standard LX200 protocol to communicate with the Nexus DSC Pro via its usb port.
 
 It differs from the mk1 in ...
 - The USB/UART HAT is not required
 - Will only work with a Nexus DSC Pro
 - Requires Nexus DSc Pro firmware later than 1.4.12
   
-If the Nexus DSC is connected to a drive, GoTo++ can be enabled. Directly compatible drives are ScopeDog, SiTech & SkyTracker. ServoCat drives can be used but since the Nexus DSC usb port is used to connect to the ServoCat drive, the eFinder must be configured to connect to the Nexus DSC via wifi.
+If the Nexus DSC is connected to a drive, GoTo++ can be enabled. Directly compatible drives are ScopeDog, SiTech & SkyTracker. ServoCat drives can be used but since the Nexus DSC usb port is used to connect to the ServoCat drive, the eFinder must be configured to connect to the Nexus DSC Pro via wifi.
 
 A Raspberry Pi HQ camera module is strongly recommended. The Arduino clone will also work, but the config.txt file needs amending. change to camera_auto_detect=0 and add dtoverlay=IMX477
 
