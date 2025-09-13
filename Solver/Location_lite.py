@@ -33,6 +33,7 @@ class Geoloc:
         while True:
             try:
                 msg = self.ser.readline().decode('UTF-8', errors='ignore')
+                print(msg)
                 if msg.startswith('$GNGGA'):
                     pkts = msg.split(',')
                     Elev = pkts[9]
