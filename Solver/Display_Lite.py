@@ -23,8 +23,8 @@ class Handpad:
                 i2c = board.I2C()
                 self.tilt = adafruit_adxl34x.ADXL345(i2c)
             except:
-                self.display("tilt set to auto","but no sensor","found")
-                sys.exit()
+                self.display("tilt set to auto","but no sensor","setting to 'right'")
+                self.side = 'right'
         libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'drive')
         if os.path.exists(libdir):
             sys.path.append(libdir)
@@ -80,7 +80,7 @@ class Handpad:
         self.disp.ShowImage()
 
     def dispFocus(self, screen):
-       
+
         if self.findSide() < 0:
             screen = screen.transpose(Image.ROTATE_180)
 
@@ -88,6 +88,45 @@ class Handpad:
         self.disp.getbuffer(screen)
         self.disp.ShowImage()
 
+    def dispGoto(self, ddAz, ddAlt, dispAz, dispAlt, line2):
+        def getDistanceDisplay(dd):
+            dist = round(dd, 3) if dd < 0.01 else round(dd, 2) if dd < 10 else round(dd, 1)
+            distFmt = '%1.3f' if dist < 0.01 else '%2.2f' if dist < 10 else '%3.1f'
+            return (distFmt % dist)
+
+        self.draw.rectangle((0,0,self.width,self.height), outline=0, fill=0)
+        self.draw.text((51, 0), "Az " + dispAz, font=self.font, fill=255)
+        self.draw.text((47, 10), "Alt " + dispAlt, font=self.font, fill=255)
+
+        if ddAz > 180:
+            ddAz = (ddAz - 180) * -1
+        elif ddAz < -180:
+            ddAz = (ddAz + 180) * -1
+
+        if ddAz < 0:
+            self.draw.polygon([(3, 1),(1, 3),(3, 5)], fill=255)
+            self.draw.line([(7, 3),(4, 3)], fill=255)
+        else:
+            self.draw.polygon([(5, 1),(7, 3),(5, 5)], fill=255)
+            self.draw.line([(1, 3),(4, 3)], fill=255)
+        if ddAlt < 0:
+            self.draw.polygon([(2, 14),(4, 16),(6, 14)], fill=255)
+            self.draw.line([(4, 10),(4, 13)], fill=255)
+        else:
+            self.draw.polygon([(2, 12),(4, 10),(6, 12)], fill=255)
+            self.draw.line([(4, 16),(4, 13)], fill=255)
+
+        self.draw.text((10, 0), getDistanceDisplay(abs(ddAz)), font=self.font, fill=255)
+        self.draw.text((10, 10), getDistanceDisplay(abs(ddAlt)), font=self.font, fill=255)
+        self.draw.text((1, 20), line2, font=self.font, fill=255)
+
+        if self.findSide() < 0:
+            im = self.image.transpose(Image.ROTATE_180)
+        else:
+            im = self.image
+
+        self.disp.getbuffer(im)
+        self.disp.ShowImage()
 
     def get_box(self) -> serial.Serial:
         """Returns the box variable
